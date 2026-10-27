@@ -1,0 +1,57 @@
+offGym 1.4.2+offgym.3 — pure red correction
+Android versionCode: 30
+Date: 26 October 2026
+
+Primary red changed from warm #ff453a to pure #eb0000 (235, 0, 0).
+Light theme red is #c90000; pressed red is #b80000.
+Buttons, navigation, dumbbell intro, native accent and timer defaults updated.
+Existing offline installs select red once, keeping their language and training state.
+The supplied launcher icon and intro behavior remain unchanged.
+
+Verification:
+- Targeted color, offline state and intro tests: 31 passed.
+- Additional state, notification and language recheck: 67 passed.
+- Initial full run: 5526 passed, 18 failed, 26 skipped, with a hook timeout.
+  Two assertions still expected the superseded warm red; expectations updated to
+  the requested pure red. Those tests passed in the recheck. The additional
+  timeout failures also passed when rerun alone. Fifteen known Windows path/shell
+  compatibility failures remain; the full run is not represented as fully passing.
+- Mobile bundle validation passed.
+- Android release build: successful, 337 tasks (25 executed, 312 up-to-date).
+- APK signature schemes v2/v3 and alignment verified.
+- No INTERNET or REQUEST_INSTALL_PACKAGES permissions.
+- Packaged stylesheet contains pure red #eb0000.
+- Installed on Redmi M2003J15SC; installed versionCode 30 confirmed.
+- Cold launch: Status ok; no filtered app startup errors.
+- Physical phone screenshot primary button pixel: R=235, G=0, B=0.
+- Source archive checked for the updated palette and required license notices;
+  private signing material excluded.
+
+Logs:
+../frontend/offgym-red-tests.log
+../frontend/offgym-red-recheck.log
+../frontend/offgym-red-suite.log
+../frontend/android/build-offgym-red.log
+offGym-v3-signature.txt
+offGym-v3-redmi.png
+
+Initial full-run failures (notification color and timing cases resolved by the recheck):
+ FAIL  src/store/useStore.mobile-remote.test.jsx [ src/store/useStore.mobile-remote.test.jsx ]
+ FAIL  scripts/check-mobile-bundle.test.mjs > check-mobile-bundle > fails when the synced index.html is the web build (two builds into one dist/)
+ FAIL  scripts/check-mobile-bundle.test.mjs > check-mobile-bundle > fails when index.html loads a chunk that is not there
+ FAIL  scripts/check-mobile-bundle.test.mjs > check-mobile-bundle > fails on an unstamped service worker
+ FAIL  scripts/check-mobile-bundle.test.mjs > check-mobile-bundle > fails when there is no build at all
+ FAIL  src/lib/android-asset-packs.test.js > Play asset packs > hold exactly the drawings of the iPhone packs, at <packId>/<drawing>.webp
+ FAIL  src/lib/android-asset-packs.test.js > Play asset packs > refuse a pack with a drawing missing
+ FAIL  src/lib/api-base.test.js > the web container refuses a BASE_PATH it cannot serve > starts with BASE_PATH=undefined
+ FAIL  src/lib/api-base.test.js > the web container refuses a BASE_PATH it cannot serve > starts with BASE_PATH=
+ FAIL  src/lib/api-base.test.js > the web container refuses a BASE_PATH it cannot serve > starts with BASE_PATH=/gym
+ FAIL  src/lib/api-base.test.js > the web container refuses a BASE_PATH it cannot serve > starts with BASE_PATH=/a/b
+ FAIL  src/lib/api-base.test.js > the web container refuses a BASE_PATH it cannot serve > starts with BASE_PATH=/g+ym
+ FAIL  src/lib/api-base.test.js > the web container refuses a BASE_PATH it cannot serve > refuses BASE_PATH=/gym/, and says why
+ FAIL  src/lib/api-base.test.js > the web container refuses a BASE_PATH it cannot serve > refuses BASE_PATH=/, and says why
+ FAIL  src/lib/api-base.test.js > the web container refuses a BASE_PATH it cannot serve > refuses BASE_PATH=gym, and says why
+ FAIL  src/lib/api-base.test.js > the web container refuses a BASE_PATH it cannot serve > refuses BASE_PATH=gym/, and says why
+ FAIL  src/lib/i18n-plural.test.js > tn() — plural forms from the pack > gives every tn() key real one / few / many forms in ru, uk and pl (#365)
+ FAIL  src/lib/rest-alert.native.test.js > the rest alert in the Android app > passes what the notification needs: the end, the whole rest, the labels and the accent
+ FAIL  src/lib/rest-alert.test.js > buildRestAlert > paints the notification with the chosen accent, not the default green

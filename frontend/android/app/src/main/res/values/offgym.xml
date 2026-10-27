@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="offgym_background">#0c0e12</color>
+    <color name="colorPrimary">#eb0000</color>
+    <color name="colorPrimaryDark">#b80000</color>
+    <color name="colorAccent">#eb0000</color>
+</resources>

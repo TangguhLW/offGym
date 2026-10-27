@@ -1,0 +1,14 @@
+{
+  "name": "offGym",
+  "short_name": "offGym",
+  "description": "Personal gym & body weight tracker",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0c0e12",
+  "theme_color": "#0c0e12",
+  "icons": [
+    { "src": "offgym-icon.png", "sizes": "1254x1254", "type": "image/png", "purpose": "any" }
+  ]
+}
